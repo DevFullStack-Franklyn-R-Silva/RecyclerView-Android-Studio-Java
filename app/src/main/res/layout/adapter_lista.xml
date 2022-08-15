@@ -16,7 +16,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="5"
             android:text="Título"
-            android:textSize="18sp" />
+            android:textAlignment="viewStart"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textAno"
@@ -24,6 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Ano"
+            android:textAlignment="textEnd"
             android:textSize="12sp" />
 
     </LinearLayout>

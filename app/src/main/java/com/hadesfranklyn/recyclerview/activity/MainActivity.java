@@ -1,7 +1,10 @@
 package com.hadesfranklyn.recyclerview.activity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -9,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.hadesfranklyn.recyclerview.R;
+import com.hadesfranklyn.recyclerview.RecyclerItemClickListener;
 import com.hadesfranklyn.recyclerview.adapter.Adapter;
 import com.hadesfranklyn.recyclerview.model.Filme;
 
@@ -39,6 +43,32 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayout.VERTICAL));
         recyclerView.setAdapter(adapter);
+
+        //evento de click
+        recyclerView.addOnItemTouchListener(
+                new RecyclerItemClickListener(
+                        getApplicationContext(),
+                        recyclerView,
+                        new RecyclerItemClickListener.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(View view, int position) {
+                                Filme filme = listaFilmes.get(position);
+                                Toast.makeText(getApplicationContext(), "Item pressionado " + filme.getTituloFilme(), Toast.LENGTH_LONG).show();
+                            }
+
+                            @Override
+                            public void onLongItemClick(View view, int position) {
+                                Filme filme = listaFilmes.get(position);
+                                Toast.makeText(getApplicationContext(), "Click longo " + filme.getTituloFilme(), Toast.LENGTH_LONG).show();
+                            }
+
+                            @Override
+                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                            }
+                        }
+                )
+        );
     }
 
     public void criarFilmes() {
