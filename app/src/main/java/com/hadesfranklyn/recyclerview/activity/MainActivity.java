@@ -1,10 +1,12 @@
-package com.hadesfranklyn.recyclerview;
+package com.hadesfranklyn.recyclerview.activity;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.hadesfranklyn.recyclerview.R;
 
 public class MainActivity extends AppCompatActivity {
 
