@@ -1,8 +1,10 @@
 package com.hadesfranklyn.recyclerview.activity;
 
 import android.os.Bundle;
+import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -29,12 +31,13 @@ public class MainActivity extends AppCompatActivity {
         this.criarFilmes();
 
         //Configurar adapter
-        Adapter adapter = new Adapter();
+        Adapter adapter = new Adapter(listaFilmes);
 
         //Configurar RecyclerView
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayout.VERTICAL));
         recyclerView.setAdapter(adapter);
     }
 
@@ -52,6 +55,33 @@ public class MainActivity extends AppCompatActivity {
         this.listaFilmes.add(filme);
 
         filme = new Filme("Lightyear", "Aventura/Infantil", "2022");
+        this.listaFilmes.add(filme);
+
+        filme = new Filme("O Homem do Norte", "Aventura/Ação", "2022");
+        this.listaFilmes.add(filme);
+
+        filme = new Filme("Morbius", "Ação/Fantasia", "2022");
+        this.listaFilmes.add(filme);
+
+        filme = new Filme("Ted Bundy: A Confissão Final", "Crime/Drama", "2022");
+        this.listaFilmes.add(filme);
+
+        filme = new Filme("Encanto", "Musical/Infantil", "2022");
+        this.listaFilmes.add(filme);
+
+        filme = new Filme("Eternos", "Ação/Fantasia", "2022");
+        this.listaFilmes.add(filme);
+
+        filme = new Filme("Homem-Aranha: Sem Volta para Casa", "Ação/Aventura", "2022");
+        this.listaFilmes.add(filme);
+
+        filme = new Filme("Milagre na Cela 7", "Drama ", "2019");
+        this.listaFilmes.add(filme);
+
+        filme = new Filme("1917", "Guerra/Drama", "2019");
+        this.listaFilmes.add(filme);
+
+        filme = new Filme("A Fera do Mar", "Aventura/Comédia", "2022");
         this.listaFilmes.add(filme);
     }
 }
